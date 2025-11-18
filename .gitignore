@@ -48,7 +48,6 @@ ENV/
 Thumbs.db
 
 # Project specific
-models/
 logs/
 results/
 figures/

@@ -67,7 +67,7 @@ models:
       freeze_backbone: false
       
   sota_2025:
-    - name: "eva02_base_patch14_224"
+    - name: "dinov2"  # uses timm/vit_small_patch14_dinov2.lvd142m under the hood
       pretrained: true
       freeze_backbone: false
 
