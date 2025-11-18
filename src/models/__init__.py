@@ -15,7 +15,7 @@ from .transformers import (
     EVA02Model,
     get_transformer_model
 )
-from .sota_2025 import DinoV3Model, get_sota_2025_model, list_available_sota_models
+from .sota_2025 import DinoV2Model, get_sota_2025_model, list_available_sota_models
 
 __all__ = [
     # Baseline CNNs
@@ -39,8 +39,8 @@ __all__ = [
     'EVA02Model',
     'get_transformer_model',
     
-    # SOTA 2025 (restricted to DINOv3)
-    'DinoV3Model',
+    # SOTA 2025 (restricted to DINOv2)
+    'DinoV2Model',
     'get_sota_2025_model',
     'list_available_sota_models',
 ]

@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import timm
 
-class DinoV3Model(nn.Module):
+class DinoV2Model(nn.Module):
     """
     DINO-style wrapper using a timm backbone.
 
@@ -22,9 +22,9 @@ class DinoV3Model(nn.Module):
     ):
         super().__init__()
 
-        print(f"Loading DINOv3-style backbone from timm: {backbone_name}")
+        print(f"Loading DINOv2-style backbone from timm: {backbone_name}")
 
-        # Use timm model as the DINOv3 backbone. Replace `backbone_name` with your DINOv3 id.
+        # Use timm model as the DINOv2 backbone. Replace `backbone_name` with your DINOv2 id.
         self.model = timm.create_model(
             backbone_name,
             pretrained=pretrained,
@@ -38,7 +38,7 @@ class DinoV3Model(nn.Module):
                 if "head" not in name and "fc" not in name and "classifier" not in name:
                     param.requires_grad = False
 
-        print(f"DINOv3-style model parameters: "
+        print(f"DINOv2-style model parameters: "
               f"{sum(p.numel() for p in self.model.parameters()) / 1e6:.2f}M")
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -56,7 +56,7 @@ def get_sota_2025_model(
     key = model_name.lower()
 
     if key == "dinov2":
-        return DinoV3Model(
+        return DinoV2Model(
             backbone_name="timm/vit_small_patch14_dinov2.lvd142m",
             num_classes=num_classes,
             pretrained=pretrained,
