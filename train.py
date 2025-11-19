@@ -132,6 +132,15 @@ def get_model(args, num_classes):
 
 def main():
     args = parse_args()
+
+    # Auto-adjust image size for certain SOTA backbones that require a fixed resolution
+    # DINOv2 ViT-small (timm/vit_small_patch14_dinov2.lvd142m) expects 518x518 inputs.
+    if args.model_type == 'sota' and args.model_name.lower() == 'dinov2':
+        # If user didn't explicitly change the default 224, bump to 518 to match the backbone.
+        if args.image_size == 224:
+            print("[INFO] Overriding image_size to 518 for dinov2 backbone "
+                  "(timm/vit_small_patch14_dinov2.lvd142m).")
+            args.image_size = 518
     
     # Set device
     device = torch.device(args.device if torch.cuda.is_available() else 'cpu')
