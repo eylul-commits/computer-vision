@@ -210,12 +210,22 @@ def main():
         model_name=experiment_name
     )
     
-    # Train
-    history = trainer.train(
-        num_epochs=args.epochs,
-        early_stopping_patience=args.patience,
-        save_best=True
-    )
+    # Train (support Ctrl+C while still saving metrics/figures)
+    interrupted = False
+    try:
+        history = trainer.train(
+            num_epochs=args.epochs,
+            early_stopping_patience=args.patience,
+            save_best=True
+        )
+    except KeyboardInterrupt:
+        interrupted = True
+        print("\n[INFO] Training interrupted by user (Ctrl+C). Saving current state and proceeding to evaluation...")
+        # Persist what we have so far (best checkpoint is already saved during training)
+        last_epoch = max(0, len(trainer.history.get('train_loss', [])) - 1)
+        trainer.save_checkpoint(last_epoch, is_best=False)
+        trainer.save_history()
+        history = trainer.history
     
     # Load best model and test
     best_model_path = Path(args.output_dir) / f"{experiment_name}_best.pth"
@@ -262,6 +272,8 @@ def main():
     
     print(f"\n{'='*70}")
     print(f"Experiment completed!")
+    if interrupted:
+        print("Note: Training was interrupted early; results reflect the best checkpoint seen so far.")
     print(f"Results saved to: {args.output_dir}")
     print(f"Figures saved to: {figures_dir}")
     print(f"{'='*70}\n")
