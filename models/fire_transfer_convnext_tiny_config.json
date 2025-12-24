@@ -1,0 +1,48 @@
+{
+  "model_type": "transfer",
+  "model_name": "convnext_tiny",
+  "dataset": "fire",
+  "batch_size": 32,
+  "epochs": 30,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.0001,
+  "pretrained": true,
+  "freeze_backbone": false,
+  "dropout": 0.3,
+  "image_size": 224,
+  "device": "cuda",
+  "mixed_precision": true,
+  "best_val_acc": 0.9861245563084866,
+  "test_metrics": {
+    "accuracy": 0.9804923362749651,
+    "precision": 0.977595863851788,
+    "recall": 0.9860930030421556,
+    "f1": 0.9818260493292946,
+    "confusion_matrix": [
+      [
+        1953,
+        52
+      ],
+      [
+        32,
+        2269
+      ]
+    ],
+    "classification_report": "              precision    recall  f1-score   support\n\n     no_fire       0.98      0.97      0.98      2005\n        fire       0.98      0.99      0.98      2301\n\n    accuracy                           0.98      4306\n   macro avg       0.98      0.98      0.98      4306\nweighted avg       0.98      0.98      0.98      4306\n",
+    "per_class": {
+      "precision": {
+        "no_fire": 0.9838790931989925,
+        "fire": 0.977595863851788
+      },
+      "recall": {
+        "no_fire": 0.9740648379052369,
+        "fire": 0.9860930030421556
+      },
+      "f1": {
+        "no_fire": 0.9789473684210527,
+        "fire": 0.9818260493292946
+      }
+    },
+    "roc_auc": 0.9973357566535639
+  }
+}

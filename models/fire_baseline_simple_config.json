@@ -1,0 +1,48 @@
+{
+  "model_type": "baseline",
+  "model_name": "simple",
+  "dataset": "fire",
+  "batch_size": 32,
+  "epochs": 1000,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "pretrained": true,
+  "freeze_backbone": false,
+  "dropout": 0.3,
+  "image_size": 224,
+  "device": "cuda",
+  "mixed_precision": true,
+  "best_val_acc": 0.909648273636657,
+  "test_metrics": {
+    "accuracy": 0.8980492336274966,
+    "precision": 0.9286372007366482,
+    "recall": 0.8765754019991309,
+    "f1": 0.901855577911916,
+    "confusion_matrix": [
+      [
+        1850,
+        155
+      ],
+      [
+        284,
+        2017
+      ]
+    ],
+    "classification_report": "              precision    recall  f1-score   support\n\n     no_fire       0.87      0.92      0.89      2005\n        fire       0.93      0.88      0.90      2301\n\n    accuracy                           0.90      4306\n   macro avg       0.90      0.90      0.90      4306\nweighted avg       0.90      0.90      0.90      4306\n",
+    "per_class": {
+      "precision": {
+        "no_fire": 0.8669165885660731,
+        "fire": 0.9286372007366482
+      },
+      "recall": {
+        "no_fire": 0.9226932668329177,
+        "fire": 0.8765754019991309
+      },
+      "f1": {
+        "no_fire": 0.8939357332689055,
+        "fire": 0.901855577911916
+      }
+    },
+    "roc_auc": 0.9643149839438777
+  }
+}

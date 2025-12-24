@@ -1,0 +1,63 @@
+{
+  "model_type": "transfer",
+  "model_name": "resnet18",
+  "dataset": "smoke",
+  "batch_size": 32,
+  "epochs": 30,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "pretrained": true,
+  "freeze_backbone": false,
+  "dropout": 0.3,
+  "image_size": 224,
+  "device": "cuda",
+  "mixed_precision": true,
+  "best_val_acc": 0.9994551893217107,
+  "test_metrics": {
+    "accuracy": 0.9690721649484536,
+    "precision": 0.9699988648748733,
+    "recall": 0.9690721649484536,
+    "f1": 0.9689753738381088,
+    "confusion_matrix": [
+      [
+        478,
+        0,
+        0
+      ],
+      [
+        17,
+        775,
+        0
+      ],
+      [
+        2,
+        38,
+        533
+      ]
+    ],
+    "classification_report": "              precision    recall  f1-score   support\n\n       cloud       0.96      1.00      0.98       478\n       other       0.95      0.98      0.97       792\n       smoke       1.00      0.93      0.96       573\n\n    accuracy                           0.97      1843\n   macro avg       0.97      0.97      0.97      1843\nweighted avg       0.97      0.97      0.97      1843\n",
+    "per_class": {
+      "precision": {
+        "cloud": 0.9617706237424547,
+        "other": 0.9532595325953259,
+        "smoke": 1.0
+      },
+      "recall": {
+        "cloud": 1.0,
+        "other": 0.9785353535353535,
+        "smoke": 0.9301919720767888
+      },
+      "f1": {
+        "cloud": 0.9805128205128205,
+        "other": 0.9657320872274143,
+        "smoke": 0.9638336347197106
+      },
+      "roc_auc": {
+        "cloud": 0.9999938694499364,
+        "other": 0.9976561523897395,
+        "smoke": 0.9995506451745888
+      }
+    },
+    "roc_auc": 0.9988514715001534
+  }
+}

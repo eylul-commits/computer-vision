@@ -1,0 +1,48 @@
+{
+  "model_type": "transfer",
+  "model_name": "resnet18",
+  "dataset": "fire",
+  "batch_size": 32,
+  "epochs": 30,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "pretrained": true,
+  "freeze_backbone": false,
+  "dropout": 0.3,
+  "image_size": 224,
+  "device": "cuda",
+  "mixed_precision": true,
+  "best_val_acc": 0.9809616005162956,
+  "test_metrics": {
+    "accuracy": 0.9756154203437064,
+    "precision": 0.9724612736660929,
+    "recall": 0.9821816601477619,
+    "f1": 0.9772972972972973,
+    "confusion_matrix": [
+      [
+        1941,
+        64
+      ],
+      [
+        41,
+        2260
+      ]
+    ],
+    "classification_report": "              precision    recall  f1-score   support\n\n     no_fire       0.98      0.97      0.97      2005\n        fire       0.97      0.98      0.98      2301\n\n    accuracy                           0.98      4306\n   macro avg       0.98      0.98      0.98      4306\nweighted avg       0.98      0.98      0.98      4306\n",
+    "per_class": {
+      "precision": {
+        "no_fire": 0.979313824419778,
+        "fire": 0.9724612736660929
+      },
+      "recall": {
+        "no_fire": 0.9680798004987531,
+        "fire": 0.9821816601477619
+      },
+      "f1": {
+        "no_fire": 0.9736644093303235,
+        "fire": 0.9772972972972973
+      }
+    },
+    "roc_auc": 0.9973887532364222
+  }
+}

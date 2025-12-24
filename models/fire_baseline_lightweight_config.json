@@ -1,0 +1,48 @@
+{
+  "model_type": "baseline",
+  "model_name": "lightweight",
+  "dataset": "fire",
+  "batch_size": 32,
+  "epochs": 1000,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "pretrained": true,
+  "freeze_backbone": false,
+  "dropout": 0.3,
+  "image_size": 224,
+  "device": "cuda",
+  "mixed_precision": true,
+  "best_val_acc": 0.8712487899322362,
+  "test_metrics": {
+    "accuracy": 0.8660009289363678,
+    "precision": 0.8532786885245902,
+    "recall": 0.9048239895697523,
+    "f1": 0.8782957182029107,
+    "confusion_matrix": [
+      [
+        1647,
+        358
+      ],
+      [
+        219,
+        2082
+      ]
+    ],
+    "classification_report": "              precision    recall  f1-score   support\n\n     no_fire       0.88      0.82      0.85      2005\n        fire       0.85      0.90      0.88      2301\n\n    accuracy                           0.87      4306\n   macro avg       0.87      0.86      0.86      4306\nweighted avg       0.87      0.87      0.87      4306\n",
+    "per_class": {
+      "precision": {
+        "no_fire": 0.882636655948553,
+        "fire": 0.8532786885245902
+      },
+      "recall": {
+        "no_fire": 0.8214463840399002,
+        "fire": 0.9048239895697523
+      },
+      "f1": {
+        "no_fire": 0.8509429088090933,
+        "fire": 0.8782957182029107
+      }
+    },
+    "roc_auc": 0.9364595898346267
+  }
+}
